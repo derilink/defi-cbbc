@@ -57,8 +57,16 @@ contract CBBCFactory {
         emit Liquidation(tokenAddress);
     }
 
-    function calculatePayout() internal pure returns (uint256) {
-        // Example payout calculation
-        return 100 * (10 ** 18);
+    function calculatePayoff(
+        address tokenAddress
+    ) internal pure returns (uint256) {
+        // Example payoff calculation
+        // Use pyth to get the underlying price
+        // if (tokenAddress == "BULL") {
+        //     payoff = min(tokenAddress.strike - pyth.price(tokenAddress.underlying),0);
+        // } else {
+        //     payoff = min(pyth.price(tokenAddress.underlying) - tokenAddress.strike,0);
+        // }
+        // return payoff;
     }
 }
