@@ -41,7 +41,7 @@ contract CBBCFactory {
         Vault issuerVault = Vault(token.issuerVault());
         Vault buyerVault = Vault(token.buyerVault());
 
-        uint256 liability = calculatePayout();
+        uint256 liability = calculatePayoff();
 
         // 1. Check margin level
         bool sufficientMargin = issuerVault.checkMarginLevel(liability);
@@ -62,7 +62,7 @@ contract CBBCFactory {
     ) internal pure returns (uint256) {
         // Example payoff calculation
         // Use pyth to get the underlying price
-        // if (tokenAddress == "BULL") {
+        // if (tokenAddress.isBull == False) {
         //     payoff = min(tokenAddress.strike - pyth.price(tokenAddress.underlying),0);
         // } else {
         //     payoff = min(pyth.price(tokenAddress.underlying) - tokenAddress.strike,0);
